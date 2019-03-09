@@ -1,40 +1,38 @@
 <template>
     <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <header>
-                    <h1>Server Status</h1>
-                </header>
-            </div>
-        </div>
+        <vue-header :headerMsg="headerMsg" />
         <hr>
         <div class="row">
-            <div class="col-xs-12 col-sm-6">
-                <ul class="list-group">
-                    <li
-                            class="list-group-item"
-                            v-for="index in 5">
-                        Server #{{ index }}
-                    </li>
-                </ul>
-            </div>
-            <div class="col-xs-12 col-sm-6">
-                <p>Server Details are currently not updated</p>
-            </div>
+            <server-list :servers="servers"/>
+            <server-update :updateMsg="serverDetails"/>
         </div>
         <hr>
-        <div class="row">
-            <div class="col-xs-12">
-                <footer>
-                    <!-- comment -->
-                    <p>All Servers are managed here</p>
-                </footer>
-            </div>
-        </div>
+        <vue-footer :footerMsg="footerMsg"/>
     </div>
 </template>
 
 <script>
+import VueFooter from './components/VueFooter.vue';
+import VueHeader from './components/VueHeader.vue';
+import ServerUpdate from './components/ServerUpdate.vue';
+import ServerList from './components/ServerList.vue'
+
+export default {
+    data: function() {
+        return {
+            servers: ['MickeyCH', 'BalooDE', 'HelloJudyUS', 'BeerBottleHUN'],
+            serverDetails: 'Server Details are currently not updated',
+            headerMsg: 'Server Status',
+            footerMsg: 'All Servers are managed here'
+        }
+    },
+    components: {
+        'vue-footer': VueFooter,
+        'vue-header': VueHeader,
+        'server-update': ServerUpdate,
+        'server-list': ServerList
+    }
+}
 </script>
 
 <style>
