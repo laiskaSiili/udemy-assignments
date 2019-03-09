@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+    font-family: "Verdana";
+}
+
+#mainContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    height: 100%;
+    width: 80%; 
+}
+
+.playerBox {
+    flex-basis: 40%;
+    margin: 0% 5% 0% 5%;
+}
+
+.playerBox p {
+    margin: 0px;
+    line-height: 30px;
+}
+
+.centerText {
+    text-align: center;
+}
+
+.hpContainer {
+    position: relative;
+}
+
+.hp {
+    z-index: 3;
+    position: relative;
+}
+
+.hpBar {
+    z-index: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 30px;
+    background-color: green;
+    -webkit-transition: width 0.2s ease-in-out;
+    -moz-transition: width 0.2s ease-in-out;
+    -o-transition: width 0.2s ease-in-out;
+    transition: width 0.2s ease-in-out;
+
+}
+
+.hpBarFull {
+    z-index: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 30px;
+    background-color: lightgray;
+}
+
+#actionButtons {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 30px 0;
+}
+
+#actionButtons button {
+    margin: 15px 10px 15px 10px;
+    padding: 5px;
+}
+
+#logList {
+    flex-basis: 100%;
+    padding: 20px 40px 20px 40px;
+}
+
+.playerLog {
+    font-weight: bold;
+    color: blue;
+    background-color: lightblue;
+    margin-bottom: 3px;
+}
+
+.monsterLog {
+    font-weight: bold;
+    color: red;
+    background-color: lightsalmon;
+    margin-bottom: 3px;
+}
+
+.shadow {
+    box-shadow: 3px 3px 3px 3px lightgrey;
+}
+
+#btnStartGame {
+    background-color: lightgreen;
+}
+
+#btnAttack {
+    background-color: lightcoral;
+}
+
+#btnSpecialAttack {
+    background-color: lightsalmon;
+}
+
+#btnHeal {
+    background-color: aquamarine;
+}
+
+#btnGiveUp {
+    background-color: white;
+}

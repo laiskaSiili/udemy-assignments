@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <div id="app">
+        <div id="mainContainer" class="centerText">
+            <div class="playerBox">
+                <h1>YOU</h1>
+                <div class="hpContainer">
+                    <p class="hp">{{ hpYou }}</p>
+                    <div :style="{width: hpYou + '%'}" class="hpBar"></div>
+                    <div class="hpBarFull"></div>
+                </div>
+            </div>
+            <div class="playerBox">
+                <h1>MONSTER</h1>
+                <div class="hpContainer">
+                    <p class="hp">{{ hpMonster }}</p>
+                    <div :style="{width: hpMonster + '%'}" class="hpBar"></div>
+                    <div class="hpBarFull"></div>
+                </div>
+            </div>
+            <div id="actionButtons" class="shadow">
+                <button v-if="!gameRunning" @click="gameRunning = !gameRunning" id="btnStartGame">START NEW GAME</button>
+                <template v-else>
+                    <button @click="normalAttack" id="btnAttack">ATTACK</button>
+                    <button @click="specialAttack" id="btnSpecialAttack">SPECIAL ATTACK</button>
+                    <button @click="heal" id="btnHeal">HEAL</button>
+                    <button @click="giveUp" id="btnGiveUp">GIVE UP</button>
+                </template>
+            </div>
+            <ul style="list-style-type: none;" id="logList" class="shadow">
+                <li v-for="lg in gameLogs.slice().reverse()">
+                    <div :class="lg.type">
+                        {{ lg.message }}
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
